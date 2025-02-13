@@ -12,23 +12,43 @@
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int	content)
 {
 	t_list	*ptr;
 
 	ptr = (t_list *) malloc(sizeof(t_list));
 	if (!ptr)
 		return (NULL);
-	ptr->content = content;
+	ptr->data = content;
 	ptr->next = NULL;
 	return (ptr);
+}
+
+t_list  *ft_lstlast(t_list *lst)
+{
+	t_list *last;
+
+	last = lst;
+	while (last->next)
+		last = last->next;
+	return (last);
+}
+
+t_list  *ft_lstlast_befor(t_list *lst)
+{
+	t_list *last;
+
+	last = lst;
+	while (last->next->next)
+		last = last->next;
+	return (last);
 }
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
 
-	if (new == NULL || lst == NULL)
+	if (new == NULL)
 		return ;
 	if (*lst == NULL)
 		*lst = new;
@@ -47,16 +67,15 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	*lst = new;
 }
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstclear(t_list **lst)
 {
 	t_list	*ptr;
 
-	if (!lst || !del)
+	if (!lst)
 		return ;
 	while (*lst)
 	{
 		ptr = (*lst)->next;
-		del((*lst)->content);
 		free(*lst);
 		*lst = ptr;
 	}

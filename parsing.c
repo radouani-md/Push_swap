@@ -56,15 +56,47 @@ char	**filter_arguments(char **arg_string)
 	return (alloc_args);
 }
 
-void	add_to_node(char **all_args)
+int	check_duplicate(t_list	**stack_node)
+{
+	t_list	*current;
+	t_list	*cheker;
+
+	current = *stack_node;
+	while (current)
+	{
+		cheker = current->next;
+		while (cheker)
+		{
+			if (current->data == cheker->data)
+				return (0);
+			cheker = cheker->next;
+		}
+		current = current->next;
+	}
+	return (1);
+}
+
+void	add_to_node(char **all_args , t_list **stack_node)
 {
 	size_t	i;
+	long	value;
 
 	i = 0;
+	if (!all_args)
+		return ;
 	while (all_args[i])
 	{
-		ft_lstnew((char *)all_args[i]);
-		i++
+		value = md_atoi(all_args[i]);
+		if (value > 2147483647 || value < -2147483648)
+			return (write(2, "Error\n", 6),ft_free_all(all_args), ft_lstclear(stack_node));
+		ft_lstadd_back(stack_node, ft_lstnew(value));
+		free(all_args[i]);
+		i++;
 	}
-	
+	free(all_args);
+	if (!check_duplicate(stack_node))
+	{
+		write(2, "Error\n", 6);
+		ft_lstclear(stack_node);
+	}
 }

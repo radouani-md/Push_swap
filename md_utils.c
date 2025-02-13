@@ -77,11 +77,11 @@ int	checksign_long(int res)
 	return (0);
 }
 
-int	md_atoi(const char *str)
+long	md_atoi(const char *str)
 {
-	int					i;
-	int					sign;
-	unsigned long long	t;
+	int		i;
+	int		sign;
+	long	t;
 
 	i = 0;
 	sign = 1;
@@ -96,12 +96,9 @@ int	md_atoi(const char *str)
 	}
 	while (str[i] <= '9' && str[i] >= '0')
 	{
-		if (!(str[i] <= '9' && str[i] >= '0'))
-			return (0);
-		if (t > (unsigned long long)((9223372036854775807
-				- (str[i] - 48)) / 10))
-			return (checksign_long(sign));
 		t = t * 10 + (str[i] - 48);
+		if (t > 2147483648)
+			return (2147483648);
 		i++;
 	}
 	return (t * sign);
