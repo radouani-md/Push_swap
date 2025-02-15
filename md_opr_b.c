@@ -14,8 +14,8 @@
 
 void	pa(t_list **stack_a, t_list **stack_b, int k)
 {
-	t_list *one_st_a;
-	t_list *one_st_b;
+	t_list	*one_st_a;
+	t_list	*one_st_b;
 
 	if (ft_lstsize(*stack_b) < 1)
 		return ;
@@ -30,8 +30,8 @@ void	pa(t_list **stack_a, t_list **stack_b, int k)
 
 void	pb(t_list **stack_a, t_list **stack_b, int k)
 {
-	t_list *one_st_a;
-	t_list *one_st_b;
+	t_list	*one_st_a;
+	t_list	*one_st_b;
 
 	if (ft_lstsize(*stack_a) < 1)
 		return ;
@@ -46,8 +46,8 @@ void	pb(t_list **stack_a, t_list **stack_b, int k)
 
 void	ra(t_list **stack_a, int k)
 {
-	t_list *one_st;
-	t_list *last_st;
+	t_list	*one_st;
+	t_list	*last_st;
 
 	if (ft_lstsize(*stack_a) < 2)
 		return ;
@@ -62,8 +62,8 @@ void	ra(t_list **stack_a, int k)
 
 void	rb(t_list **stack_b, int k)
 {
-	t_list *one_st;
-	t_list *last_st;
+	t_list	*one_st;
+	t_list	*last_st;
 
 	if (ft_lstsize(*stack_b) < 2)
 		return ;
