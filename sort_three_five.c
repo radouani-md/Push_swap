@@ -14,7 +14,7 @@
 
 void	swap_three(t_list **stack_a)
 {
-	if (ft_lstsize(*stack_a) > 3 || ft_lstsize(*stack_a) < 3)
+	if (ft_lstsize(*stack_a) != 3)
 		return ;
 	if((*stack_a)->data > (*stack_a)->next->data
 		&& (*stack_a)->data < (*stack_a)->next->next->data
@@ -93,7 +93,7 @@ void	swap_four(t_list **stack_a, t_list **stack_b)
 	t_list	*head;
 
 	head = *stack_a;
-	if (ft_lstsize(*stack_a) > 4 || ft_lstsize(*stack_a) < 4)
+	if (ft_lstsize(*stack_a) != 4)
 		return ;
 	less_one = *stack_a;
 	while (head)
@@ -115,7 +115,7 @@ void	swap_five(t_list **stack_a, t_list **stack_b)
 	t_list	*head;
 
 	head = *stack_a;
-	if (ft_lstsize(*stack_a) > 5 || ft_lstsize(*stack_a) < 5)
+	if (ft_lstsize(*stack_a) != 5)
 		return ;
 	less_one = *stack_a;
 	while (head)

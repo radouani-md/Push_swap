@@ -46,32 +46,58 @@ void	print(t_list *lst)
 		tmp = tmp->next;
 	}
 }
+
+void is_emty(int argc, char **argv)
+{
+	int i;
+	int j;
+
+	i = 1;
+	while (i <= argc - 1)
+	{
+		j = 0;
+		while (argv[i][j] == ' ' || (argv[i][j] >= 9 && argv[i][j] <= 13))
+			j++;
+		if (argv[i][j] == '\0')
+		{
+			write(2, "Error\n", 6);
+			exit(0);
+		}
+		i++;
+	}
+}
 int main(int argc, char **argv)
 {
 	t_list	*stack_a = NULL;
 	t_list *stack_b = NULL;
-	// t_position max;
-
-	// ft_lstadd_back(&stack_b, ft_lstnew(4));
-	// ft_lstadd_back(&stack_b, ft_lstnew(5));
-
-	// ft_lstadd_back(&stack_b, ft_lstnew(2));
-	// ft_lstadd_back(&stack_b, ft_lstnew(3));
+	int		number_args;
+	
 	if (argc > 1)
 	{
+		is_emty(argc, argv);
 		add_to_node(filter_arguments(argv), &stack_a);
-		index_args(&stack_a);
-		// print(stack_a);
-		// printf("-----\n");
-		// print(stack_b);
+		
+		number_args = ft_lstsize(stack_a);
+		if (number_args == 2)
+			swap_two(&stack_a);
+		else if (number_args == 3)
+			swap_three(&stack_a);
+		else if (number_args == 4)
+			swap_four(&stack_a, &stack_b);
+		else if (number_args == 5)
+			swap_five(&stack_a, &stack_b);
+		else if (number_args > 5 && number_args <= 100)
+		{
+			index_args(&stack_a);
+			pushing_maxing(&stack_a, &stack_b, 11);
+		}
+		else if (number_args > 100)
+		{
+			index_args(&stack_a);
+			pushing_maxing(&stack_a, &stack_b, 35);
+		}
 		// printf("|____________|\n");
-		pushing_maxing(&stack_a, &stack_b);
-		// printf("<--------------->\n");
 		// print(stack_a);
-		// // max = max_node(stack_a);
 		// printf("-----\n");
-		// print(stack_b);
-		// printf("\n");
-		// // printf("%d\n%d\n", max.max, max.position);
 	}
 }

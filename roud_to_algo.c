@@ -12,44 +12,6 @@
 
 #include "push_swap.h"
 
-void	make_index_minus_one(t_list *head)
-{
-    while (head)
-    {
-        head->index = -1;
-        head = head->next;
-    }
-}
-
-void index_args(t_list **stack_a)
-{
-    t_list *head;
-    t_list *smallest;
-    int index;
-    int min_value;
-
-	head = *stack_a;
-	make_index_minus_one(head);
-    index = 0;
-    while (index < ft_lstsize(*stack_a))
-    {
-        head = *stack_a;
-        smallest = NULL;
-        min_value = 2147483647;
-        while (head)
-        {
-            if (head->index == -1 && head->data <= min_value)
-            {
-                min_value = head->data;
-                smallest = head;
-            }
-            head = head->next;
-        }
-        if (smallest)
-            smallest->index = index++;
-    }
-}
-
 void	push_to_a_sorted(t_list **stack_a, t_list **stack_b)
 {
 	int	size_node;
@@ -75,15 +37,27 @@ void	push_to_a_sorted(t_list **stack_a, t_list **stack_b)
 	}
 }
 
-void	pushing_maxing(t_list **stack_a, t_list **stack_b)
+int	handel_count(t_list **stack_a)
 {
-	int	range;
-	int index;
+	int		count;
+	t_list	*head;
+	int		semi_size;
 
-	if (!stack_a)
-		return ;
-	range = 11;
-	index = 0;
+	count = 0;
+	semi_size = ft_lstsize(*stack_a) / 2;
+	head = *stack_a;
+	while (semi_size)
+	{
+		if (head->data > head->next->data)
+			count++;
+		head = head->next;
+		semi_size--;
+	}
+	return (count);
+}
+
+void	normal_algo(t_list **stack_a, t_list **stack_b, int index, int range)
+{
 	while (*stack_a)
 	{
 		if ((*stack_a)->index <= index)
@@ -100,6 +74,41 @@ void	pushing_maxing(t_list **stack_a, t_list **stack_b)
 		else
 			ra(stack_a, 1);
 	}
+}
+
+void	handel_algo(t_list **stack_a, t_list **stack_b, int index, int range)
+{
+	while (*stack_a)
+	{
+		if ((*stack_a)->index <= index)
+		{
+			pb(stack_a, stack_b, 1);
+			index++;
+		}
+		else if ((*stack_a)->index <= (range + index))
+		{
+			pb(stack_a, stack_b, 1);
+			rb(stack_b, 1);
+			index++;
+		}
+		else
+			rra(stack_a, 1);
+	}
+}
+
+void	pushing_maxing(t_list **stack_a, t_list **stack_b, int range)
+{
+	int index;
+	int	count;
+
+	if (!stack_a)
+		return ;
+	index = 0;
+	count = handel_count(stack_a);
+	if (count > (ft_lstsize(*stack_a) / 3))
+		handel_algo(stack_a, stack_b, index, range);
+	else
+		normal_algo(stack_a, stack_b, index, range);
 	push_to_a_sorted(stack_a, stack_b);
 }
 

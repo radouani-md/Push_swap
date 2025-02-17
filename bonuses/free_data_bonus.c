@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 void	ft_free_all(char **str)
 {
@@ -30,5 +30,14 @@ void	ft_free_a(char **str, int i)
 		return ;
 	while(str[i])
 		free(str[i++]);
+	free(str);
+}
+
+void	ft_free_r_a(char **str, int i)
+{
+	if (!str)
+		return ;
+	while(str[i])
+		free(str[i--]);
 	free(str);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker_bonus.h"
 
 int	handel_arg(char **args)
 {
@@ -51,7 +51,7 @@ char	**filter_arguments(char **arg_string)
 	alloc_args = md_split(joined_args, ' ');
 	free(joined_args);
 	if(handel_arg(alloc_args) == 0)
-		return (write(2, "Error\n", 6),ft_free_all(alloc_args), NULL);
+		return (ft_free_all(alloc_args), NULL);
 	return (alloc_args);
 }
 
@@ -75,19 +75,19 @@ int	check_duplicate(t_list	**stack_node)
 	return (1);
 }
 
-void	add_to_node(char **all_args , t_list **stack_node)
+int	add_to_node(char **all_args , t_list **stack_node)
 {
 	size_t	i;
 	long	value;
 
 	i = 0;
 	if (!all_args)
-		return ;
+		return (0);
 	while (all_args[i])
 	{
 		value = md_atoi(all_args[i]);
 		if (value > 2147483647 || value < -2147483648)
-			return (write(2, "Error\n", 6),ft_free_a(all_args, i), ft_lstclear(stack_node));
+			return (ft_free_a(all_args, i), ft_lstclear(stack_node), 0);
 		ft_lstadd_back(stack_node, ft_lstnew(value));
 		free(all_args[i]);
 		i++;
@@ -95,7 +95,8 @@ void	add_to_node(char **all_args , t_list **stack_node)
 	free(all_args);
 	if (!check_duplicate(stack_node))
 	{
-		write(2, "Error\n", 6);
 		ft_lstclear(stack_node);
+		return (0);
 	}
+	return (1);
 }
