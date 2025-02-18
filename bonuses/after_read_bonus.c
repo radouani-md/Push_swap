@@ -66,3 +66,17 @@ void	aply_ops(t_list **stack_a, t_list **stack_b, t_ops *opers)
 		size_ops--;
 	}
 }
+
+int	is_x_sorted(t_list **stack_a)
+{
+	t_list	*head;
+
+	head = *stack_a;
+	while (head->next)
+	{
+		if (head->data > head->next->data)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}

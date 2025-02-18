@@ -33,7 +33,7 @@ typedef struct s_ops
 }	t_ops;
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10000000
+#  define BUFFER_SIZE 10000
 # endif
 
 char	*get_next_line(int fd);
@@ -72,5 +72,7 @@ void	rra(t_list **stack_a, int k);
 void	rrr(t_list **stack_a, t_list **stack_b, int k);
 void	rrb(t_list **stack_b, int k);
 void	aply_ops(t_list **stack_a, t_list **stack_b, t_ops *opers);
+int		is_x_sorted(t_list **stack_a);
+void	ft_lclear(t_ops **lst);
 
 #endif

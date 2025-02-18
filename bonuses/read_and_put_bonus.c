@@ -52,21 +52,25 @@ void	ft_lst_back(t_ops **lst, t_ops *new)
 void	reading_input(t_ops **operatios)
 {
 	char	*line;
-	int		i;
+	int		is;
 
 	line = get_next_line(0);
-	i = 0;
+	is = 1;
 	while(line)
 	{
-		if (!line)
-			ft_free_r_a(line, i);
-		i++;
 		if (ft_strcmp(line, "sa\n") != 0 && ft_strcmp(line, "sb\n") != 0 && ft_strcmp(line, "ss\n") != 0
 			&& ft_strcmp(line, "pa\n") != 0 && ft_strcmp(line, "pb\n") != 0 && ft_strcmp(line, "ra\n") != 0
 			&& ft_strcmp(line, "rb\n") != 0 && ft_strcmp(line, "rr\n") != 0 && ft_strcmp(line, "rra\n") != 0
 			&& ft_strcmp(line, "rrb\n") != 0 && ft_strcmp(line, "rrr\n") != 0)
 		{
 			write(2, "Error\n", 6);
+			is = 0;
+		}
+		if (is == 0 && *operatios)
+		{
+			ft_lclear(operatios);
+			free(line);
+			get_next_line(-1);
 			exit(1);
 		}
 		ft_lst_back(operatios, ft_lnew(line));

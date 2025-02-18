@@ -32,12 +32,17 @@ void	ft_free_a(char **str, int i)
 		free(str[i++]);
 	free(str);
 }
-
-void	ft_free_r_a(char **str, int i)
+void	ft_lclear(t_ops **lst)
 {
-	if (!str)
+	t_ops	*ptr;
+
+	if (!lst)
 		return ;
-	while(str[i])
-		free(str[i--]);
-	free(str);
+	while (*lst)
+	{
+		ptr = (*lst)->next;
+		free(*lst);
+		*lst = ptr;
+	}
+	*lst = NULL;
 }
