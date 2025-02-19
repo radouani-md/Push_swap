@@ -6,7 +6,7 @@
 /*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:41:12 by mradouan          #+#    #+#             */
-/*   Updated: 2025/02/19 17:32:28 by mradouan         ###   ########.fr       */
+/*   Updated: 2025/02/19 23:08:31 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void	helper_main(int number_args, t_list *stack_a, t_list *stack_b)
 		index_args(&stack_a);
 		pushing_maxing(&stack_a, &stack_b, 35);
 	}
+	if (stack_a)
+		ft_lstclear(&stack_a);
 }
 
 int	main(int argc, char **argv)
