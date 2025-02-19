@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   after_read.c                                       :+:      :+:    :+:   */
+/*   after_read_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mradouan <mradouan@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-17 20:38:06 by mradouan          #+#    #+#             */
-/*   Updated: 2025-02-17 20:38:06 by mradouan         ###   ########.fr       */
+/*   Created: 2025/02/17 20:38:06 by mradouan          #+#    #+#             */
+/*   Updated: 2025/02/19 16:14:09 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	ft_lsize(t_ops *lst)
 	}
 	return (count);
 }
-void helper_aply(t_list **stack_a, t_list **stack_b, t_ops *opers)
+
+void	helper_aply(t_list **stack_a, t_list **stack_b, t_ops *opers)
 {
 	if (!ft_strcmp(opers->data, "sa\n"))
 		sa(stack_a, 0);
@@ -59,7 +60,7 @@ void	aply_ops(t_list **stack_a, t_list **stack_b, t_ops *opers)
 	if (!opers)
 		return ;
 	size_ops = ft_lsize(opers);
-	while(size_ops)
+	while (size_ops)
 	{
 		helper_aply(stack_a, stack_b, opers);
 		opers = opers->next;

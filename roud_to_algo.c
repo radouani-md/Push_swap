@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   roud_to_algo.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mradouan <mradouan@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-13 13:38:36 by mradouan          #+#    #+#             */
-/*   Updated: 2025-02-13 13:38:36 by mradouan         ###   ########.fr       */
+/*   Created: 2025/02/13 13:38:36 by mradouan          #+#    #+#             */
+/*   Updated: 2025/02/19 16:50:26 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	push_to_a_sorted(t_list **stack_a, t_list **stack_b)
 {
-	int	size_node;
-	t_position node;
+	int			size_node;
+	t_position	node;
 
 	node = max_node(*stack_b);
 	while (*stack_b)
@@ -98,7 +98,7 @@ void	handel_algo(t_list **stack_a, t_list **stack_b, int index, int range)
 
 void	pushing_maxing(t_list **stack_a, t_list **stack_b, int range)
 {
-	int index;
+	int	index;
 	int	count;
 
 	if (!stack_a)
@@ -111,4 +111,3 @@ void	pushing_maxing(t_list **stack_a, t_list **stack_b, int range)
 		normal_algo(stack_a, stack_b, index, range);
 	push_to_a_sorted(stack_a, stack_b);
 }
-

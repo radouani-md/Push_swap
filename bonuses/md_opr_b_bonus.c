@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   md_opr_b.c                                         :+:      :+:    :+:   */
+/*   md_opr_b_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mradouan <mradouan@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-11 10:08:48 by mradouan          #+#    #+#             */
-/*   Updated: 2025-02-11 10:08:48 by mradouan         ###   ########.fr       */
+/*   Created: 2025/02/11 10:08:48 by mradouan          #+#    #+#             */
+/*   Updated: 2025/02/19 16:24:03 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	pb(t_list **stack_a, t_list **stack_b, int k)
 {
 	t_list	*one_st_a;
 	t_list	*one_st_b;
+
 	if (ft_lstsize(*stack_a) < 1)
 		return ;
 	one_st_b = *stack_b;

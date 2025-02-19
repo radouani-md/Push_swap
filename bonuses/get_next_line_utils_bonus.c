@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mradouan <mradouan@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-17 14:22:48 by mradouan          #+#    #+#             */
-/*   Updated: 2025-02-17 14:22:48 by mradouan         ###   ########.fr       */
+/*   Created: 2025/02/17 14:22:48 by mradouan          #+#    #+#             */
+/*   Updated: 2025/02/19 15:17:32 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1)
 		return (ft_strdup(s2));
 	if (!s2)
-		return (ft_strdup(s1));
+		return ((char *)s1);
 	lens = ft_strlen(s1) + ft_strlen(s2);
-	str = (char *)malloc(lens + 1);
+	str = malloc(lens + 1);
 	if (!str)
-		return (free(str), NULL);
+		return (NULL);
 	while (s1[j] != '\0')
 		str[i++] = s1[j++];
 	j = 0;

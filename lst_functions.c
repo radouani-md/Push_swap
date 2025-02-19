@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   lst_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mradouan <mradouan@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-06 15:33:00 by mradouan          #+#    #+#             */
-/*   Updated: 2025-02-06 15:33:00 by mradouan         ###   ########.fr       */
+/*   Created: 2025/02/06 15:33:00 by mradouan          #+#    #+#             */
+/*   Updated: 2025/02/19 16:37:26 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int	content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*ptr;
 
@@ -24,9 +24,9 @@ t_list	*ft_lstnew(int	content)
 	return (ptr);
 }
 
-t_list  *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list *last;
+	t_list	*last;
 
 	last = lst;
 	while (last->next)
@@ -34,9 +34,9 @@ t_list  *ft_lstlast(t_list *lst)
 	return (last);
 }
 
-t_list  *ft_lstlast_befor(t_list *lst)
+t_list	*ft_lstlast_befor(t_list *lst)
 {
-	t_list *last;
+	t_list	*last;
 
 	last = lst;
 	while (last->next->next)

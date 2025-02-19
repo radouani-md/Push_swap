@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mradouan <mradouan@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-17 14:20:34 by mradouan          #+#    #+#             */
-/*   Updated: 2025-02-17 14:20:34 by mradouan         ###   ########.fr       */
+/*   Created: 2025/02/17 14:20:34 by mradouan          #+#    #+#             */
+/*   Updated: 2025/02/19 16:18:48 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ char	*check_read(int fd, char *buffer, char *static_v)
 		joined = ft_strjoin(static_v, buffer);
 		if (!joined)
 			return (free(buffer), free(static_v), NULL);
+		free(static_v);
 		static_v = joined;
 		if (ft_strchr(static_v, '\n'))
 			break ;

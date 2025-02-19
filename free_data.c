@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_data.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mradouan <mradouan@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-06 15:40:40 by mradouan          #+#    #+#             */
-/*   Updated: 2025-02-06 15:40:40 by mradouan         ###   ########.fr       */
+/*   Created: 2025/02/06 15:40:40 by mradouan          #+#    #+#             */
+/*   Updated: 2025/02/19 16:30:06 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_free_all(char **str)
 	if (!str)
 		return ;
 	i = 0;
-	while(str[i])
+	while (str[i])
 		free(str[i++]);
 	free(str);
 }
@@ -28,7 +28,7 @@ void	ft_free_a(char **str, int i)
 {
 	if (!str)
 		return ;
-	while(str[i])
+	while (str[i])
 		free(str[i++]);
 	free(str);
 }

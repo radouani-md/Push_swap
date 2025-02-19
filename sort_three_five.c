@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_three_five.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mradouan <mradouan@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-12 10:50:36 by mradouan          #+#    #+#             */
-/*   Updated: 2025-02-12 10:50:36 by mradouan         ###   ########.fr       */
+/*   Created: 2025/02/12 10:50:36 by mradouan          #+#    #+#             */
+/*   Updated: 2025/02/19 16:50:45 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	swap_three(t_list **stack_a)
 {
 	if (ft_lstsize(*stack_a) != 3)
 		return ;
-	if((*stack_a)->data > (*stack_a)->next->data
+	if ((*stack_a)->data > (*stack_a)->next->data
 		&& (*stack_a)->data < (*stack_a)->next->next->data
 		&& (*stack_a)->next->data < (*stack_a)->next->next->data)
 		sa(stack_a, 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   md_opr_r.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mradouan <mradouan@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-11 21:05:37 by mradouan          #+#    #+#             */
-/*   Updated: 2025-02-11 21:05:37 by mradouan         ###   ########.fr       */
+/*   Created: 2025/02/11 21:05:37 by mradouan          #+#    #+#             */
+/*   Updated: 2025/02/19 16:38:18 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	rra(t_list **stack_a, int k)
 {
-	t_list *last_st;
-	t_list *last_st_befor;
-	t_list *one_st;
+	t_list	*last_st;
+	t_list	*last_st_befor;
+	t_list	*one_st;
 
 	if (ft_lstsize(*stack_a) < 2)
 		return ;
@@ -32,9 +32,9 @@ void	rra(t_list **stack_a, int k)
 
 void	rrb(t_list **stack_b, int k)
 {
-	t_list *last_st;
-	t_list *last_st_befor;
-	t_list *one_st;
+	t_list	*last_st;
+	t_list	*last_st_befor;
+	t_list	*one_st;
 
 	if (ft_lstsize(*stack_b) < 2)
 		return ;

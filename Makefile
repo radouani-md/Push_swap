@@ -13,7 +13,7 @@ SRC = md_utils.c push_swap.c parsing.c md_split.c free_data.c lst_functions.c md
 
 SRC_BONUS = $(BONS)/md_utils_bonus.c $(BONS)/md_split_bonus.c $(BONS)/parsing_bonus.c $(BONS)/lst_functions_bonus.c \
 	$(BONS)/checker_bonus.c $(BONS)/free_data_bonus.c $(BONS)/read_and_put_bonus.c $(BONS)/get_next_line_bonus.c $(BONS)/get_next_line_utils_bonus.c \
-	$(BONS)/md_opr_b_bonus.c $(BONS)/md_opr_r_bonus.c $(BONS)/md_opr_s_bonus.c $(BONS)/after_read_bonus.c\
+	$(BONS)/md_opr_b_bonus.c $(BONS)/md_opr_r_bonus.c $(BONS)/md_opr_s_bonus.c $(BONS)/after_read_bonus.c $(BONS)/function_norm_bonus.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -43,6 +43,6 @@ clean:
 	rm -f $(OBJ) ${OBJ_BONUS}
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME_BNS)
 
 re: fclean all

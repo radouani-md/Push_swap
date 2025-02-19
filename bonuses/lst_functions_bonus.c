@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_functions.c                                    :+:      :+:    :+:   */
+/*   lst_functions_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mradouan <mradouan@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-06 15:33:00 by mradouan          #+#    #+#             */
-/*   Updated: 2025-02-06 15:33:00 by mradouan         ###   ########.fr       */
+/*   Created: 2025/02/06 15:33:00 by mradouan          #+#    #+#             */
+/*   Updated: 2025/02/19 16:22:54 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker_bonus.h"
 
-t_list	*ft_lstnew(int	content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*ptr;
 
@@ -24,9 +24,9 @@ t_list	*ft_lstnew(int	content)
 	return (ptr);
 }
 
-t_list  *ft_lstlast(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_list *last;
+	t_list	*last;
 
 	last = lst;
 	while (last->next)
@@ -34,9 +34,9 @@ t_list  *ft_lstlast(t_list *lst)
 	return (last);
 }
 
-t_list  *ft_lstlast_befor(t_list *lst)
+t_list	*ft_lstlast_befor(t_list *lst)
 {
-	t_list *last;
+	t_list	*last;
 
 	last = lst;
 	while (last->next->next)
@@ -65,34 +65,4 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		return ;
 	new->next = *lst;
 	*lst = new;
-}
-
-void	ft_lstclear(t_list **lst)
-{
-	t_list	*ptr;
-
-	if (!lst)
-		return ;
-	while (*lst)
-	{
-		ptr = (*lst)->next;
-		free(*lst);
-		*lst = ptr;
-	}
-	*lst = NULL;
-}
-
-int	ft_lstsize(t_list *lst)
-{
-	int		count;
-	t_list	*ptr;
-
-	count = 0;
-	ptr = lst;
-	while (ptr != NULL)
-	{
-		count++;
-		ptr = ptr->next;
-	}
-	return (count);
 }

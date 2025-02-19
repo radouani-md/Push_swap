@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mian.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mradouan <mradouan@student.42.fr>          #+#  +:+       +#+        */
+/*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025-02-06 08:41:12 by mradouan          #+#    #+#             */
-/*   Updated: 2025-02-06 08:41:12 by mradouan         ###   ########.fr       */
+/*   Created: 2025/02/06 08:41:12 by mradouan          #+#    #+#             */
+/*   Updated: 2025/02/19 16:43:17 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_position	max_node(t_list *stack)
 {
-	int size_node;
-	int	max_posi;
-	t_position node;
+	int			size_node;
+	int			max_posi;
+	t_position	node;
 
 	node.max = -2147483648;
 	node.position = 0;
@@ -36,21 +36,10 @@ t_position	max_node(t_list *stack)
 	return (node);
 }
 
-void	print(t_list *lst)
+void	is_emty(int argc, char **argv)
 {
-	t_list *tmp;
-	tmp = lst;
-	while (tmp)
-	{
-		printf("{{%d}}, [%d]\n", tmp->data, tmp->index);
-		tmp = tmp->next;
-	}
-}
-
-void is_emty(int argc, char **argv)
-{
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (i <= argc - 1)
@@ -66,17 +55,19 @@ void is_emty(int argc, char **argv)
 		i++;
 	}
 }
-int main(int argc, char **argv)
+
+int	main(int argc, char **argv)
 {
-	t_list	*stack_a = NULL;
-	t_list *stack_b = NULL;
+	t_list	*stack_a;
+	t_list	*stack_b;
 	int		number_args;
-	
+
+	stack_a = NULL;
+	stack_b = NULL;
 	if (argc > 1)
 	{
 		is_emty(argc, argv);
 		add_to_node(filter_arguments(argv), &stack_a);
-		
 		number_args = ft_lstsize(stack_a);
 		if (number_args == 2)
 			swap_two(&stack_a);
@@ -96,8 +87,5 @@ int main(int argc, char **argv)
 			index_args(&stack_a);
 			pushing_maxing(&stack_a, &stack_b, 35);
 		}
-		// printf("|____________|\n");
-		// print(stack_a);
-		// printf("-----\n");
 	}
 }
