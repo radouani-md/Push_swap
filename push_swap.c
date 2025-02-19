@@ -6,7 +6,7 @@
 /*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:41:12 by mradouan          #+#    #+#             */
-/*   Updated: 2025/02/19 16:43:17 by mradouan         ###   ########.fr       */
+/*   Updated: 2025/02/19 17:32:28 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,28 @@ void	is_emty(int argc, char **argv)
 	}
 }
 
+void	helper_main(int number_args, t_list *stack_a, t_list *stack_b)
+{
+	if (number_args == 2)
+		swap_two(&stack_a);
+	else if (number_args == 3)
+		swap_three(&stack_a);
+	else if (number_args == 4)
+		swap_four(&stack_a, &stack_b);
+	else if (number_args == 5)
+		swap_five(&stack_a, &stack_b);
+	else if (number_args > 5 && number_args <= 100)
+	{
+		index_args(&stack_a);
+		pushing_maxing(&stack_a, &stack_b, 11);
+	}
+	else if (number_args > 100)
+	{
+		index_args(&stack_a);
+		pushing_maxing(&stack_a, &stack_b, 35);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
@@ -69,23 +91,7 @@ int	main(int argc, char **argv)
 		is_emty(argc, argv);
 		add_to_node(filter_arguments(argv), &stack_a);
 		number_args = ft_lstsize(stack_a);
-		if (number_args == 2)
-			swap_two(&stack_a);
-		else if (number_args == 3)
-			swap_three(&stack_a);
-		else if (number_args == 4)
-			swap_four(&stack_a, &stack_b);
-		else if (number_args == 5)
-			swap_five(&stack_a, &stack_b);
-		else if (number_args > 5 && number_args <= 100)
-		{
-			index_args(&stack_a);
-			pushing_maxing(&stack_a, &stack_b, 11);
-		}
-		else if (number_args > 100)
-		{
-			index_args(&stack_a);
-			pushing_maxing(&stack_a, &stack_b, 35);
-		}
+		helper_main(number_args, stack_a, stack_b);
 	}
+	return (0);
 }

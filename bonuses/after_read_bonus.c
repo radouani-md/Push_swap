@@ -6,7 +6,7 @@
 /*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:38:06 by mradouan          #+#    #+#             */
-/*   Updated: 2025/02/19 16:14:09 by mradouan         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:11:56 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int	is_x_sorted(t_list **stack_a)
 {
 	t_list	*head;
 
+	if (!*stack_a)
+		return (0);
 	head = *stack_a;
 	while (head->next)
 	{
