@@ -80,6 +80,22 @@ void	helper_main(int number_args, t_list *stack_a, t_list *stack_b)
 		ft_lstclear(&stack_a);
 }
 
+int	is_x_sorted(t_list **stack_a)
+{
+	t_list	*head;
+
+	if (!*stack_a)
+		return (0);
+	head = *stack_a;
+	while (head->next)
+	{
+		if (head->data > head->next->data)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
@@ -93,6 +109,8 @@ int	main(int argc, char **argv)
 		is_emty(argc, argv);
 		add_to_node(filter_arguments(argv), &stack_a);
 		number_args = ft_lstsize(stack_a);
+		if (is_x_sorted(&stack_a))
+			return (0);
 		helper_main(number_args, stack_a, stack_b);
 	}
 	return (0);

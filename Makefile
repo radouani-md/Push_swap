@@ -4,7 +4,7 @@ NAME_BNS = checker
 
 CC = cc
 
-CFLAGS = -w
+CFLAGS = -Wall -Wextra -Werror
 
 BONS = bonuses
 
