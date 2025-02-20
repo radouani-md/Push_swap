@@ -6,7 +6,7 @@
 /*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 10:50:36 by mradouan          #+#    #+#             */
-/*   Updated: 2025/02/19 16:50:45 by mradouan         ###   ########.fr       */
+/*   Updated: 2025/02/20 11:32:49 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,28 @@ void	helper_four(t_list *head, t_list **stack_a, t_list	*less_one)
 	}
 }
 
+void	swap_four(t_list **stack_a, t_list **stack_b)
+{
+	t_list	*less_one;
+	t_list	*head;
+
+	head = *stack_a;
+	if (ft_lstsize(*stack_a) != 4)
+		return ;
+	less_one = *stack_a;
+	while (head)
+	{
+		if (head->data < less_one->data)
+			less_one = head;
+		head = head->next;
+	}
+	head = *stack_a;
+	helper_four(head, stack_a, less_one);
+	pb(stack_a, stack_b, 1);
+	swap_three(stack_a);
+	pa(stack_a, stack_b, 1);
+}
+
 void	helper_five(t_list *head, t_list **stack_a, t_list	*less_one)
 {
 	int	count;
@@ -85,28 +107,6 @@ void	helper_five(t_list *head, t_list **stack_a, t_list	*less_one)
 		}
 		head = head->next;
 	}
-}
-
-void	swap_four(t_list **stack_a, t_list **stack_b)
-{
-	t_list	*less_one;
-	t_list	*head;
-
-	head = *stack_a;
-	if (ft_lstsize(*stack_a) != 4)
-		return ;
-	less_one = *stack_a;
-	while (head)
-	{
-		if (head->data < less_one->data)
-			less_one = head;
-		head = head->next;
-	}
-	head = *stack_a;
-	helper_four(head, stack_a, less_one);
-	pb(stack_a, stack_b, 1);
-	swap_three(stack_a);
-	pa(stack_a, stack_b, 1);
 }
 
 void	swap_five(t_list **stack_a, t_list **stack_b)

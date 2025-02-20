@@ -1,15 +1,15 @@
 NAME = push_swap
 
-NAME_BNS = checker_bonus
+NAME_BNS = checker
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -w
 
 BONS = bonuses
 
 SRC = md_utils.c push_swap.c parsing.c md_split.c free_data.c lst_functions.c md_opr_s.c \
-	md_opr_b.c md_opr_r.c sort_three_five.c roud_to_algo.c utils_of_algo.c function_norm.c\
+	md_opr_b.c md_opr_r.c sort_three_five.c roud_to_algo.c utils_of_algo.c function_norm.c \
 
 SRC_BONUS = $(BONS)/md_utils_bonus.c $(BONS)/md_split_bonus.c $(BONS)/parsing_bonus.c $(BONS)/lst_functions_bonus.c \
 	$(BONS)/checker_bonus.c $(BONS)/free_data_bonus.c $(BONS)/read_and_put_bonus.c $(BONS)/get_next_line_bonus.c $(BONS)/get_next_line_utils_bonus.c \

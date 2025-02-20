@@ -6,7 +6,7 @@
 /*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 13:38:36 by mradouan          #+#    #+#             */
-/*   Updated: 2025/02/19 16:50:26 by mradouan         ###   ########.fr       */
+/*   Updated: 2025/02/20 11:24:36 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	push_to_a_sorted(t_list **stack_a, t_list **stack_b)
 				rb(stack_b, 1);
 			pa(stack_a, stack_b, 1);
 		}
-		if (((node.position) > size_node / 2))
+		else if (((node.position) > size_node / 2))
 		{
 			while ((*stack_b)->data != node.max)
 				rrb(stack_b, 1);
