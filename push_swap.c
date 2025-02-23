@@ -6,7 +6,7 @@
 /*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:41:12 by mradouan          #+#    #+#             */
-/*   Updated: 2025/02/19 23:08:31 by mradouan         ###   ########.fr       */
+/*   Updated: 2025/02/23 21:08:39 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int	main(int argc, char **argv)
 		add_to_node(filter_arguments(argv), &stack_a);
 		number_args = ft_lstsize(stack_a);
 		if (is_x_sorted(&stack_a))
-			return (0);
+			return (ft_lstclear(&stack_a), 0);
 		helper_main(number_args, stack_a, stack_b);
 	}
 	return (0);
