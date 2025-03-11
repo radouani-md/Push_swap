@@ -6,7 +6,7 @@
 /*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:41:12 by mradouan          #+#    #+#             */
-/*   Updated: 2025/02/23 21:08:39 by mradouan         ###   ########.fr       */
+/*   Updated: 2025/03/10 22:25:12 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	is_emty(int argc, char **argv)
 		if (argv[i][j] == '\0')
 		{
 			write(2, "Error\n", 6);
-			exit(0);
+			exit(1);
 		}
 		i++;
 	}

@@ -6,17 +6,15 @@
 /*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 11:49:14 by mradouan          #+#    #+#             */
-/*   Updated: 2025/02/19 16:17:16 by mradouan         ###   ########.fr       */
+/*   Updated: 2025/03/10 23:35:01 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_BONUS_H
 # define CHECKER_BONUS_H
 
-# include <fcntl.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <limits.h>
 
 typedef struct s_list
 {
@@ -31,9 +29,7 @@ typedef struct s_ops
 	struct s_ops	*next;
 }	t_ops;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 3
-# endif
+# define BUFFER_SIZE 3
 
 char	*get_next_line(int fd);
 int		reading_input(t_ops **operatios);

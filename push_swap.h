@@ -6,7 +6,7 @@
 /*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 08:41:17 by mradouan          #+#    #+#             */
-/*   Updated: 2025/02/20 13:10:54 by mradouan         ###   ########.fr       */
+/*   Updated: 2025/03/10 23:33:16 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stddef.h>
 
 typedef struct s_list
 {

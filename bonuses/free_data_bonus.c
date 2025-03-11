@@ -6,7 +6,7 @@
 /*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 15:40:40 by mradouan          #+#    #+#             */
-/*   Updated: 2025/02/19 16:17:55 by mradouan         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:23:00 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_free_all(char **str)
 	while (str[i])
 		free(str[i++]);
 	free(str);
+	str = NULL;
 }
 
 void	ft_free_a(char **str, int i)
@@ -31,6 +32,7 @@ void	ft_free_a(char **str, int i)
 	while (str[i])
 		free(str[i++]);
 	free(str);
+	str = NULL;
 }
 
 void	ft_lclear(t_ops **lst)

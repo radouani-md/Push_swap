@@ -6,7 +6,7 @@
 /*   By: mradouan <mradouan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 11:48:07 by mradouan          #+#    #+#             */
-/*   Updated: 2025/02/19 18:22:36 by mradouan         ###   ########.fr       */
+/*   Updated: 2025/03/10 17:04:00 by mradouan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ int	main(int argc, char **argv)
 	operations = NULL;
 	if (argc > 1)
 	{
-		if (!add_to_node(filter_arguments(argv), &stack_a)
-			|| !is_emty(argc, argv))
+		if (!is_emty(argc, argv)
+			|| !add_to_node(filter_arguments(argv), &stack_a))
 		{
 			write(2, "Error\n", 6);
 			return (1);
